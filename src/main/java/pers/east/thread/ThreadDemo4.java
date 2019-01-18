@@ -25,5 +25,7 @@ public class ThreadDemo4 {
                 System.out.println("延迟1秒后每三秒执行一次");
             }
         },1,3, TimeUnit.SECONDS);
+//        scheduledThreadPool.
+        System.out.println("thread close");
     }
 }
