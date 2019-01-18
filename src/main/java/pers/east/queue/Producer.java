@@ -22,23 +22,23 @@ public class Producer implements Runnable{
     public void run() {
         String data = null;
         Random r =new Random();
-        System.out.println("启动生产中...");
+        System.out.println(System.currentTimeMillis()/1000+"启动生产中...");
         try {
             while(isRunning){
-                System.out.println("正在生成数据...");
+                System.out.println(System.currentTimeMillis()/1000+"正在生成数据...");
                 Thread.sleep(r.nextInt(DEFAULT_RANGE_FOR_SLEEP));
 
                 data = "data:"+ count.incrementAndGet();
-                System.out.println("将数据："+ data +"放入队列...");
+                System.out.println(System.currentTimeMillis()/1000+"将数据："+ data +"放入队列...");
                 if(!queue.offer(data,2, TimeUnit.SECONDS)){
-                    System.out.println("放入数据失败："+data);
+                    System.out.println(System.currentTimeMillis()/1000+"放入数据失败："+data);
                 }
             }
         }catch (InterruptedException e){
             e.printStackTrace();
             Thread.currentThread().interrupt();
         }finally {
-            System.out.println("退出生产者线程！");
+            System.out.println(System.currentTimeMillis()/1000+"退出生产者线程！");
         }
     }
 

@@ -14,6 +14,7 @@ public class BlockingQueueTest {
         //借助Excutors
         ExecutorService service = Executors.newCachedThreadPool();
         //启动线程
+        System.out.println(System.currentTimeMillis()/1000+"start..");
         service.execute(producer1);
         service.execute(producer2);
         service.execute(producer3);
@@ -21,6 +22,7 @@ public class BlockingQueueTest {
 
         //执行10s
         Thread.sleep(10*1000);
+        System.out.println(System.currentTimeMillis()/1000+"wake up..");
         producer1.stop();
         producer2.stop();
         producer3.stop();
