@@ -26,6 +26,7 @@ public class BlockingQueueTest {
         producer1.stop();
         producer2.stop();
         producer3.stop();
+        
         //退出Executor
         service.shutdown();
 
